@@ -1,4 +1,4 @@
-registrar-sdk-node
-==================
+Penn Registrar SDK
+=====
 
-A Node.js wrapper for the Penn registrar API
+A Node.js wrapper for the Penn registrar API.
