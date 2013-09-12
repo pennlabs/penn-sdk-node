@@ -114,6 +114,26 @@ Registrar.prototype.iterRequest = function (url, params, func, fin) {
   }
 }
 
+Registrar.prototype._getSingle = function (url, params, cb) {
+  if (typeof params == 'function') {
+    cb = params
+    params = {}
+  }
+  
+  this.request(url, params, function (err, data) {
+    if (err) {
+      cb(err, null)
+    } else {
+      data = data.result_data && data.result_data[0])
+      if (data) {
+        cb(null, data)
+      } else {
+        cb(new Error('Expected single result but got none'), null)
+      }
+    }
+  })
+}
+
 /**
  * Get the catalog info for a given course
  * @param {string} dept
@@ -122,9 +142,18 @@ Registrar.prototype.iterRequest = function (url, params, func, fin) {
  *     info object.
  */
 Registrar.prototype.course = function (dept, courseNum, cb) {
-  this.request(ENDPOINTS.CATALOG + '/' + dept + '/' + courseNum, function (err, data) {
-    cb(err, data.result_data[0] || null)
-  })
+  this._getSingle(ENDPOINTS.CATALOG + '/' + dept + '/' + courseNum, cb)
+}
+
+/**
+ * Get the catalog info for a given section
+ * @param {string} dept
+ * @param {string} courseNum
+ * @param {string} sectionNum
+ * @param {function(Error, Object)} cb A Node-style callback where the data is a section object
+ */
+Registrar.prototype.section = function (dept, courseNum, sectionNum, cb) {
+  this._getSingle(ENDPOINTS.SEARCH, {course_id: dept + courseNum + sectionNum}, cb)
 }
 
 /**
@@ -147,7 +176,7 @@ Registrar.prototype.department = function (dept, func, cb) {
  * @param {function(Error, Array.<Object>)=} cb The final function to call once all section
  *     objects have been handled.
  */
-Registrar.prototype.searchSections = function (params, func, cb) {
+Registrar.prototype.search = function (params, func, cb) {
   this.iterRequest(ENDPOINTS.SEARCH, params, func, cb)
 }
 
@@ -158,9 +187,7 @@ Registrar.prototype.searchSections = function (params, func, cb) {
  *     values for those parameters to their descriptions.
  */
 Registrar.prototype.searchParams = function (cb) {
-  this.request(ENDPOINTS.SEARCH_PARAMS, function (err, data) {
-    cb(err, (data.result_data && data.result_data[0]) || null)
-  })
+  this._getSingle(ENDPOINTS.SEARCH_PARAMS, cb)
 }
 
 module.exports = {
