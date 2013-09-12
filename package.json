@@ -1,7 +1,8 @@
 {
-  "name": "Penn Registrar SDK",
+  "name": "penn-courses",
   "description": "A wrapper for the Penn registrar API",
   "version": "0.0.1",
+  "main": "index.js",
   "repositories": [
     {
       "type": "git",
@@ -13,5 +14,11 @@
       "name": "MIT",
       "url": "https://github.com/pennappslabs/registrar-sdk-node/blob/master/LICENSE"
     }
-  ]
+  ],
+  "dependencies": {
+    "request": "2.27.x"
+  },
+  "devDependencies": {
+    "should": "1.2.x"
+  }
 }
