@@ -1,6 +1,6 @@
 {
-  "name": "Penn Registrar SDK",
-  "description": "A wrapper for the Penn registrar API",
+  "name": "penn-sdk-node",
+  "description": "A wrapper for the Penn OpenData APIs",
   "version": "0.0.1",
   "repositories": [
     {
