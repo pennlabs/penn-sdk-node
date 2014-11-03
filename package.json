@@ -2,7 +2,7 @@
   "name": "penn-sdk-node",
   "description": "A wrapper for the Penn OpenData APIs",
   "version": "0.0.1",
-  "repositories": [
+  "repository": [
     {
       "type": "git",
       "url": "https://github.com/pennappslabs/registrar-sdk-node.git"
