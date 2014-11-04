@@ -5,7 +5,7 @@ class Penn
 
   constructor: (@username, @password) ->
 
-  api: (endpoint) ->
+  api: (endpoint, cb) ->
     request
       url: "#{@apiHost}#{endpoint}"
       method: "GET"
@@ -15,11 +15,8 @@ class Penn
         "Authorization-Token": @password
     , (err, body, response) ->
       if err
-        console.log({
-          status: "fail"
-          response: response
-        })
-      console.log(JSON.parse(response))
-    return @
+        cb err
+      cb JSON.parse(response)
+    return
 
 module.exports = Penn
