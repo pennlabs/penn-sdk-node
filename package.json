@@ -16,8 +16,12 @@
   ],
   "dependencies": {
     "request": "^2.47.0"
-  }
+  },
   "devDependencies": {
+    "coffee-script": "^1.8.0",
     "mocha": "^2.0.1"
+  },
+  "scripts": {
+    "test": "make test"
   }
 }
