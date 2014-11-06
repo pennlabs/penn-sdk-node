@@ -30,5 +30,8 @@ class Registrar extends Penn
   course: (dept, courseNum, cb) ->
     @api("#{ENDPOINTS.CATALOG}/#{dept}/#{courseNum}", cb)
 
+  searchParams: (cb) ->
+    @api(ENDPOINTS.SEARCH_PARAMS, cb)
+
 module.exports.Penn = Penn
 module.exports.Registrar = Registrar
