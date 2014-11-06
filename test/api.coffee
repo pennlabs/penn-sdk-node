@@ -1,4 +1,3 @@
-API_KEY = ''
 assert = require "assert"
 api = require "../lib"
 Penn = api.Penn
