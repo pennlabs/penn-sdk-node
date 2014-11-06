@@ -6,6 +6,7 @@ ENDPOINTS =
   CATALOG: API_ROOT + 'course_info'
   SEARCH: API_ROOT + 'course_section_search'
   SEARCH_PARAMS: API_ROOT + 'course_section_search_parameters'
+  PERSON_DETAILS: API_ROOT + 'directory_person_details'
 
 class Penn
   apiHost: "https://esb.isc-seo.upenn.edu/8091/open_data/"
@@ -33,5 +34,10 @@ class Registrar extends Penn
   searchParams: (cb) ->
     @api(ENDPOINTS.SEARCH_PARAMS, cb)
 
+class Directory extends Penn
+  personDetails: (person, cb) ->
+    @api("#{ENDPOINTS.PERSON_DETAILS}/#{person}", cb)
+
 module.exports.Penn = Penn
 module.exports.Registrar = Registrar
+module.exports.Directory = Directory
