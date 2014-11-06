@@ -1,6 +1,7 @@
 API_KEY = ''
 assert = require "assert"
-Penn = require "../lib"
+api = require "../lib"
+Penn = api.Penn
 
 API_USERNAME = process.env.REGISTRAR_API_USERNAME || ""
 API_PASSWORD = process.env.REGISTRAR_API_PASSWORD || ""
