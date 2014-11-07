@@ -36,6 +36,9 @@ class Registrar extends Penn
   course: (dept, courseNum, cb) ->
     @api("#{ENDPOINTS.CATALOG}/#{dept}/#{courseNum}", cb)
 
+  section: (dept, courseNum, sectionNum, cb) ->
+    @api(ENDPOINTS.SEARCH, {course_id: dept + courseNum + sectionNum}, cb)
+
   searchParams: (cb) ->
     @api(ENDPOINTS.SEARCH_PARAMS, cb)
 
