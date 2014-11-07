@@ -60,3 +60,14 @@ describe 'Registrar', ->
       result.meta.should.have.property('page_number', 2)
       result.meta.should.have.property('number_of_pages', 7)
       result.should.have.lengthOf(40)
+
+  it 'should be able to search courses', ->
+    @registrar.search
+      course_id: 'hist'
+      instructor: 'kors'
+    , (result) ->
+      result.result_data.ok
+
+  it 'should get a valid list of search parameters', ->
+    @registrar.searchParams (result) ->
+      result.should.have.property('activity_map')
