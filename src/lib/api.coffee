@@ -1,11 +1,5 @@
 request = require "request"
 
-ENDPOINTS =
-  CATALOG: 'course_info'
-  SEARCH: 'course_section_search'
-  SEARCH_PARAMS: 'course_section_search_parameters'
-  PERSON_DETAILS: 'directory_person_details'
-
 class Penn
   apiHost: "https://esb.isc-seo.upenn.edu/8091/open_data/"
 
@@ -64,6 +58,11 @@ class Penn
 
 
 class Registrar extends Penn
+  ENDPOINTS =
+    CATALOG: 'course_info'
+    SEARCH: 'course_section_search'
+    SEARCH_PARAMS: 'course_section_search_parameters'
+
   course: (dept, courseNum, cb) ->
     @api("#{ENDPOINTS.CATALOG}/#{dept}/#{courseNum}", cb)
 
@@ -81,6 +80,13 @@ class Registrar extends Penn
 
 
 class Directory extends Penn
+  ENDPOINTS =
+    SEARCH: 'directory'
+    PERSON_DETAILS: 'directory_person_details'
+
+  search: (params, cb) ->
+    @api(ENDPOINTS.SEARCH, params, cb)
+
   personDetails: (person, cb) ->
     @api("#{ENDPOINTS.PERSON_DETAILS}/#{person}", cb)
 
