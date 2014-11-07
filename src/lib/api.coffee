@@ -32,6 +32,37 @@ class Penn
       cb json
     return
 
+  iterRequest: (endpoint, params, cb) ->
+    # Optional params argument
+    if typeof params is "function"
+      cb = params
+      params = {}
+    params.page_number = 1
+
+    idx = 0
+    all = []
+
+    onPage = (err, data) ->
+      throw err if err
+
+      data = data.result_data
+      all.concat data
+
+      meta = data.service_meta
+      if meta.page_number isnt meta.next_page_number
+        params.page_number += 1
+        @api endpoint, params, onPage
+      else
+        cb and cb(all)
+      return
+
+    try
+      @api endpoint, params, onPage
+    catch err
+      cb and cb(null)
+    return
+
+
 class Registrar extends Penn
   course: (dept, courseNum, cb) ->
     @api("#{ENDPOINTS.CATALOG}/#{dept}/#{courseNum}", cb)
@@ -39,12 +70,17 @@ class Registrar extends Penn
   section: (dept, courseNum, sectionNum, cb) ->
     @api(ENDPOINTS.SEARCH, {course_id: dept + courseNum + sectionNum}, cb)
 
+  department: (dept, cb) ->
+    @iterRequest("#{ENDPOINTS.CATALOG}/#{dept}", cb)
+
   searchParams: (cb) ->
     @api(ENDPOINTS.SEARCH_PARAMS, cb)
+
 
 class Directory extends Penn
   personDetails: (person, cb) ->
     @api("#{ENDPOINTS.PERSON_DETAILS}/#{person}", cb)
+
 
 module.exports.Penn = Penn
 module.exports.Registrar = Registrar
