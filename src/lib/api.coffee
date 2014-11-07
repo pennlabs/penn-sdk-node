@@ -1,12 +1,10 @@
 request = require "request"
 
-API_ROOT = "https://esb.isc-seo.upenn.edu/8091/open_data/"
-
 ENDPOINTS =
-  CATALOG: API_ROOT + 'course_info'
-  SEARCH: API_ROOT + 'course_section_search'
-  SEARCH_PARAMS: API_ROOT + 'course_section_search_parameters'
-  PERSON_DETAILS: API_ROOT + 'directory_person_details'
+  CATALOG: 'course_info'
+  SEARCH: 'course_section_search'
+  SEARCH_PARAMS: 'course_section_search_parameters'
+  PERSON_DETAILS: 'directory_person_details'
 
 class Penn
   apiHost: "https://esb.isc-seo.upenn.edu/8091/open_data/"
