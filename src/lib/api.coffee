@@ -11,18 +11,25 @@ class Penn
 
   constructor: (@username, @password) ->
 
-  api: (endpoint, cb) ->
+  api: (endpoint, params, cb) ->
+    # Optional params argument
+    if typeof params is "function"
+      cb = params
+      params = {}
+
     request
       url: "#{@apiHost}#{endpoint}"
       method: "GET"
+      qs: params
       headers:
         "Content-Type": "application/json; charset=utf-8"
         "Authorization-Bearer": @username
         "Authorization-Token": @password
     , (err, body, response) ->
-      if err
+      json = JSON.parse(body)
+      if err or json.service_meta.error_text
         cb err
-      cb JSON.parse(response)
+      cb json
     return
 
 class Registrar extends Penn
