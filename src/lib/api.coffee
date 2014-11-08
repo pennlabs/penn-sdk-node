@@ -20,7 +20,7 @@ class Penn
         "Authorization-Bearer": @username
         "Authorization-Token": @password
     , (err, body, response) ->
-      json = JSON.parse(body)
+      json = JSON.parse(response)
       if err or json.service_meta.error_text
         cb err
       cb json
@@ -88,6 +88,22 @@ class Directory extends Penn
     @api("#{ENDPOINTS.PERSON_DETAILS}/#{person}", cb)
 
 
+class Dining extends Penn
+  ENDPOINTS =
+    MENUS: 'dining/menus'
+    VENUES: 'dining/venues'
+
+  venues: (cb) ->
+    @api(ENDPOINTS.VENUES, cb)
+
+  dailyMenu: (building, cb) ->
+    @api("#{ENDPOINTS.MENUS}/daily/#{building}", cb)
+
+  weeklyMenu: (building, cb) ->
+    @api("#{ENDPOINTS.MENUS}/weekly/#{building}", cb)
+
+
 module.exports.Penn = Penn
 module.exports.Registrar = Registrar
 module.exports.Directory = Directory
+module.exports.Dining = Dining
