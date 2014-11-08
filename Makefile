@@ -3,6 +3,6 @@ js:
 
 .PHONY: test
 test: js
-	mocha  --compilers coffee:coffee-script/register
+	mocha  --compilers coffee:coffee-script/register -t 5s
 
 all: js
