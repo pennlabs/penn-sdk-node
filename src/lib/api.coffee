@@ -38,10 +38,10 @@ class Penn
     self = this
 
     onPage = (data) ->
-      all.concat data
+      all = all.concat data.result_data
 
       meta = data.service_meta
-      if meta.page_number isnt meta.next_page_number
+      if meta.current_page_number isnt meta.next_page_number
         params.page_number += 1
         self.api endpoint, params, onPage
       else

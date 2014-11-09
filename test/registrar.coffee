@@ -50,30 +50,7 @@ describe 'Registrar', ->
 
   it 'can fetch courses from CIS department', (done) ->
     @registrar.department 'CIS', (result) ->
-      console.log(result)
-      result.service_meta.should.have.property('current_page_number', 1)
-      result.service_meta.should.have.property('number_of_pages', 7)
-      result.result_data.should.have.lengthOf(20)
-      done()
-
-  it 'should handle page number parameter correctly', (done) ->
-    @registrar.department 'CIS', {page_number: 2}, (result) ->
-      result.service_meta.should.have.property('current_page_number', 2)
-      done()
-
-  it 'should handle results per page parameter correctly', (done) ->
-    @registrar.department 'CIS', {results_per_page: 40}, (result) ->
-      result.service_meta.should.have.property('results_per_page', 40)
-      result.service_meta.should.have.property('number_of_pages', 7)
-      result.should.have.lengthOf(40)
-      done()
-
-  it 'should handle both page number and result count parameters', (done) ->
-    @registrar.department 'CIS',
-      results_per_page: 40,
-      page_number: 2,
-    , (result) ->
-      result.service_meta.should.have.property('page_number', 2)
-      result.service_meta.should.have.property('number_of_pages', 7)
-      result.result_data.should.have.lengthOf(40)
+      result.should.be.ok
+      result.should.be.an.Array
+      result.length.should.be.above 100
       done()
