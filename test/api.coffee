@@ -28,3 +28,6 @@ describe 'Penn', ->
       result.result_data[0].course_department.should.equal "ACCT"
       result.result_data[0].requirements[0].value.should.equal "REC"
       done()
+
+  it 'should error when creating an API without username or password', ->
+    (-> new Penn "", "hello world").should.throw()

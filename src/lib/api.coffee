@@ -4,6 +4,8 @@ class Penn
   apiHost: "https://esb.isc-seo.upenn.edu/8091/open_data/"
 
   constructor: (@username, @password) ->
+    if not @username or not @password
+      throw new Error("Username and password required")
 
   api: (endpoint, params, cb) ->
     # Optional params argument
