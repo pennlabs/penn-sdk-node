@@ -66,6 +66,9 @@ class Registrar extends Penn
   department: (dept, cb) ->
     @iterRequest("#{ENDPOINTS.CATALOG}/#{dept}", cb)
 
+  search: (params, cb) ->
+    @iterRequest(ENDPOINTS.SEARCH, params, cb)
+
   searchParams: (cb) ->
     @api(ENDPOINTS.SEARCH_PARAMS, cb)
 

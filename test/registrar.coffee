@@ -54,3 +54,17 @@ describe 'Registrar', ->
       result.should.be.an.Array
       result.length.should.be.above 100
       done()
+      
+  it 'should be able to search courses', (done) ->
+    @registrar.search
+      course_id: 'hist'
+      instructor: 'kors'
+    , (result) ->
+      result.should.be.ok
+      result.should.be.an.Array
+      done()
+
+  it 'should get a valid list of search parameters', (done) ->
+    @registrar.searchParams (result) ->
+      result.result_data[0].should.have.property('activity_map')
+      done()
