@@ -1,4 +1,4 @@
-assert = require "assert"
+should = require "should"
 api = require "../lib"
 Directory = api.Directory
 
@@ -9,11 +9,15 @@ describe 'Directory', ->
   before ->
     @directory = new Directory(API_USERNAME, API_PASSWORD)
 
-  it 'can fetch details about Adel Qalieh', ->
-    @directory.personDetails '4ad00e45edffd2ec2180673dabf4aace', (result) ->
-      result.list_name.should.equal "QALIEH, ADEL "
+  describe 'Person details', ->
+    it 'can fetch details about Adel Qalieh', (done) ->
+      @directory.personDetails '4ad00e45edffd2ec2180673dabf4aace', (result) ->
+        result.result_data[0].list_name.should.equal "QALIEH, ADEL "
+        done()
 
-  it 'can search for Alex Wissmann', ->
-    @directory.search {last_name: 'Wissmann'}, (result) ->
-      result.result_data.should.have.lengthOf(1)
-      result.result_data[0].detail_name.should.equal "ALEXANDER R WISSMANN"
+  describe 'Search', ->
+    it 'can search for Alex Wissmann', (done) ->
+      @directory.search {last_name: 'Wissmann'}, (result) ->
+        result.result_data.should.have.lengthOf(1)
+        result.result_data[0].list_name.should.equal "WISSMANN, ALEXANDER R"
+        done()
