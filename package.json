@@ -1,19 +1,11 @@
 {
-  "name": "penn-sdk-node",
+  "name": "penn-sdk",
+  "version": "0.1.0",
   "description": "A wrapper for the Penn OpenData APIs",
-  "version": "0.0.1",
-  "repository": [
-    {
-      "type": "git",
-      "url": "https://github.com/pennappslabs/registrar-sdk-node.git"
-    }
-  ],
-  "licenses": [
-    {
-      "name": "MIT",
-      "url": "https://github.com/pennappslabs/registrar-sdk-node/blob/master/LICENSE"
-    }
-  ],
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "dependencies": {
     "request": "^2.47.0"
   },
@@ -23,6 +15,18 @@
     "should": "^4.2.1"
   },
   "scripts": {
-    "test": "make test"
-  }
+    "test": "make test",
+    "prepublish": "make js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pennappslabs/registrar-sdk-node.git"
+  },
+  "author": "Adel Qalieh",
+  "license": "MIT",
+  "homepage": "https://github.com/pennappslabs/penn-sdk-node",
+  "bugs": {
+    "url": "https://github.com/pennappslabs/penn-sdk-node/issues"
+  },
+  "keywords": ["penn", "upenn", "university"]
 }
