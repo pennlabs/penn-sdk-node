@@ -31,5 +31,11 @@ describe 'Transit', ->
 
   it 'should display the prediction endpoint', (done) ->
     @transit.predict (result) ->
-      console.log(result.result_data.PredictionData)
+      result.result_data.PredictionData.should.be.an.Object
+      result.result_data.PredictionData.StopPredictions.should.be.an.Array
+      done()
+
+  it 'should display the recent arrivals', (done) ->
+    @transit.arrived (result) ->
+      result.result_data.ArrivalStatusData.should.be.an.Array
       done()

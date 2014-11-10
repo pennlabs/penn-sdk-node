@@ -106,6 +106,7 @@ class Transit extends Penn
     STOPS: 'transit/stopinventory'
     CONFIG: 'transit/511/Configuration'
     PREDICT: 'transit/511/Prediction'
+    ARRIVED: 'transit/511/Arrived'
 
   stops: (cb) ->
     @api(ENDPOINTS.STOPS, cb)
@@ -115,6 +116,9 @@ class Transit extends Penn
 
   predict: (cb) ->
     @api(ENDPOINTS.PREDICT, cb)
+
+  arrived: (cb) ->
+    @api(ENDPOINTS.ARRIVED, cb)
 
 
 module.exports.Penn = Penn
