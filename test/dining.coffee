@@ -1,4 +1,4 @@
-assert = require "assert"
+should = require "should"
 api = require "../lib"
 Dining = api.Dining
 
