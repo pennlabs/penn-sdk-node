@@ -101,8 +101,24 @@ class Dining extends Penn
   weeklyMenu: (building, cb) ->
     @api("#{ENDPOINTS.MENUS}/weekly/#{building}", cb)
 
+class Transit extends Penn
+  ENDPOINTS =
+    STOPS: 'transit/stopinventory'
+    CONFIG: 'transit/511/Configuration'
+    PREDICT: 'transit/511/Prediction'
+
+  stops: (cb) ->
+    @api(ENDPOINTS.STOPS, cb)
+
+  config: (cb) ->
+    @api(ENDPOINTS.CONFIG, cb)
+
+  predict: (cb) ->
+    @api(ENDPOINTS.PREDICT, cb)
+
 
 module.exports.Penn = Penn
 module.exports.Registrar = Registrar
 module.exports.Directory = Directory
 module.exports.Dining = Dining
+module.exports.Transit = Transit
