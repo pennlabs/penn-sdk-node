@@ -15,7 +15,7 @@ npm install penn-sdk
 
 ## Overview
 
-```
+```javascript
 var api = require("penn-sdk")
 Registrar = api.Registrar
 
