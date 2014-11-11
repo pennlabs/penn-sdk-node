@@ -3,7 +3,7 @@ Penn OpenData Node SDK
 
 [![Build Status](https://travis-ci.org/pennappslabs/penn-sdk-node.svg?branch=master)](https://travis-ci.org/pennappslabs/penn-sdk-node)
 
-This is the Penn Open Data API implementation in NodeJS, currently with support for the registrar, directory, and dining APIs.
+This is the Penn Open Data API implementation in NodeJS, currently with support for the registrar, directory, dining, transit, and map APIs.
 You can view the complete API reference [here](docs/api.md).
 
 ## Install
@@ -59,8 +59,8 @@ If you prefer to have these tests run while you're editing automatically, you ca
   - [x] Implement registrar API
   - [x] Implement directory API
   - [x] Implement dining API
-  - [ ] Implement transit API
-  - [ ] Implement map API
+  - [x] Implement transit API (Partial)
+  - [x] Implement map API (Partial)
   - [ ] Implement news API
 - [x] Publish to npm
 - [x] Continuous testing using Travis CI
