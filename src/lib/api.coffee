@@ -87,6 +87,20 @@ class Directory extends Penn
     @api("#{ENDPOINTS.PERSON_DETAILS}/#{person}", cb)
 
 
+class Map extends Penn
+  ENDPOINTS =
+    MAPS: 'maps'
+    MAP_EVENTS: 'news_events_maps'
+    MAP_FILTERS: 'map_filter_parameters'
+
+  search: (params, cb) ->
+    params["source"] = "map"
+    @api(ENDPOINTS.MAP_EVENTS, params, cb)
+
+  filterParams: (cb) ->
+    @api(ENDPOINTS.MAP_FILTERS, cb)
+
+
 class Dining extends Penn
   ENDPOINTS =
     MENUS: 'dining/menus'
@@ -100,6 +114,7 @@ class Dining extends Penn
 
   weeklyMenu: (building, cb) ->
     @api("#{ENDPOINTS.MENUS}/weekly/#{building}", cb)
+
 
 class Transit extends Penn
   ENDPOINTS =
@@ -126,3 +141,4 @@ module.exports.Registrar = Registrar
 module.exports.Directory = Directory
 module.exports.Dining = Dining
 module.exports.Transit = Transit
+module.exports.Map = Map
