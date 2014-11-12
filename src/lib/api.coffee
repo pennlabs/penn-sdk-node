@@ -94,8 +94,7 @@ class Map extends Penn
     MAP_FILTERS: 'map_filter_parameters'
 
   search: (params, cb) ->
-    params["source"] = "map"
-    @api(ENDPOINTS.MAP_EVENTS, params, cb)
+    @api(ENDPOINTS.MAPS, params, cb)
 
   filterParams: (cb) ->
     @api(ENDPOINTS.MAP_FILTERS, cb)
