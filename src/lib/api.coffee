@@ -100,6 +100,17 @@ class Map extends Penn
     @api(ENDPOINTS.MAP_FILTERS, cb)
 
 
+class News extends Penn
+  ENDPOINTS =
+    NEWS: 'news_events_maps'
+
+  search: (description, cb) ->
+    params =
+      source: "news"
+      description: description
+    @api(ENDPOINTS.NEWS, params, cb)
+
+
 class Dining extends Penn
   ENDPOINTS =
     MENUS: 'dining/menus'
@@ -141,3 +152,4 @@ module.exports.Directory = Directory
 module.exports.Dining = Dining
 module.exports.Transit = Transit
 module.exports.Map = Map
+module.exports.News = News
