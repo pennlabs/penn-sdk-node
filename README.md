@@ -60,8 +60,8 @@ If you prefer to have these tests run while you're editing automatically, you ca
   - [x] Implement directory API
   - [x] Implement dining API
   - [x] Implement transit API (Partial)
-  - [x] Implement map API (Partial)
-  - [ ] Implement news API
+  - [x] Implement map API
+  - [x] Implement news API
 - [x] Publish to npm
 - [x] Continuous testing using Travis CI
 - [ ] Return `result_data` in methods
