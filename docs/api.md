@@ -2,51 +2,51 @@
 
 ## Registrar
 
-### course
+### course(department, courseNum, callback)
 
-### section
+### section(department, courseNum, sectionNum, callback)
 
-### department
+### department(department, callback)
 
-### search
+### search(params, callback)
 
-### searchParams
+### searchParams(callback)
 
 
 ## Directory
 
-### search
+### search(params, callback)
 
-### personDetails
+### personDetails(person, callback)
 
 
 ## Map
 
-### search
+### search(params, callback)
 
-### filterParams
+### filterParams(callback)
 
 
 ## News
 
-### search
+### search(description, callback)
 
 
 ## Dining
 
-### venues
+### venues(callback)
 
-### dailyMenu
+### dailyMenu(building, callback)
 
-### weeklyMenu
+### weeklyMenu(building, callback)
 
 
 ## Transit
 
-### stops
+### stops(callback)
 
-### config
+### config(callback)
 
-### predict
+### predict(callback)
 
-### arrived
+### arrived(callback)
