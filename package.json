@@ -20,13 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pennappslabs/registrar-sdk-node.git"
+    "url": "https://github.com/pennlabs/penn-sdk-node.git"
   },
   "author": "Adel Qalieh",
   "license": "MIT",
-  "homepage": "https://github.com/pennappslabs/penn-sdk-node",
+  "homepage": "https://github.com/pennlabs/penn-sdk-node",
   "bugs": {
-    "url": "https://github.com/pennappslabs/penn-sdk-node/issues"
+    "url": "https://github.com/pennlabs/penn-sdk-node/issues"
   },
-  "keywords": ["penn", "upenn", "university"]
+  "keywords": ["penn", "upenn", "university", "open data"]
 }
