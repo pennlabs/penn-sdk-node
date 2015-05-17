@@ -12,5 +12,5 @@ describe 'News', ->
   describe 'search', ->
     it 'should have news about Gutmann', (done) ->
       @news.search "gutmann", (result) ->
-        result.result_data.should.containDeep [title: 'Penn President Amy Gutmann to Welcome Incoming Freshmen']
+        result.result_data.length.should.be.above 10
         done()
