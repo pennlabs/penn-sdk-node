@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Penn OpenData Node SDK by pennlabs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Penn OpenData Node SDK</h1>
+      <h2 class="project-tagline">A Node.js wrapper for the Penn OpenData APIs</h2>
+      <a href="https://github.com/pennlabs/penn-sdk-node" class="btn">View on GitHub</a>
+      <a href="https://github.com/pennlabs/penn-sdk-node/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/pennlabs/penn-sdk-node/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><a href="https://travis-ci.org/pennlabs/penn-sdk-node"><img src="https://travis-ci.org/pennlabs/penn-sdk-node.svg?branch=master" alt="Build Status"></a></p>
+
+<p>This is the Penn Open Data API implementation in NodeJS, currently with support for the registrar, directory, dining, transit, and map APIs.
+You can view the complete API reference <a href="docs/api.md">here</a>.</p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<p>To get started, just run</p>
+
+<pre><code>npm install penn-sdk
+</code></pre>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> api <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span>penn-sdk<span class="pl-pds">"</span></span>)
+Registrar <span class="pl-k">=</span> <span class="pl-smi">api</span>.<span class="pl-smi">Registrar</span>
+
+registrar <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Registrar</span>(<span class="pl-s"><span class="pl-pds">"</span>API_USERNAME<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>API_PASSWORD<span class="pl-pds">"</span></span>)
+<span class="pl-smi">registrar</span>.<span class="pl-en">course</span>(<span class="pl-s"><span class="pl-pds">"</span>CHEM<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>241<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">result</span>) {
+  <span class="pl-en">console</span>.<span class="pl-c1">log</span>(result)
+})</pre></div>
+
+<h2>
+<a id="requesting-an-api-key" class="anchor" href="#requesting-an-api-key" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requesting an API key</h2>
+
+<p>To use this library, you must first obtain an API token and password for the API you want to use, which can be done <a href="https://esb.isc-seo.upenn.edu/8091/documentation/#security">here</a>.</p>
+
+<p><strong>Note</strong>: There are separate API tokens for each API.</p>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>We'd love to accept pull requests! Also, file bugs or ask questions in GitHub issues if you have any problems.</p>
+
+<h3>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h3>
+
+<ol>
+<li>Fork the repository using GitHub's interface</li>
+<li>Git clone your repository using <code>git clone YOUR_GIT_URL</code>
+</li>
+<li>Install the required dependencies using <code>npm install</code>.</li>
+<li>Start editing the CoffeeScript source files in <code>src</code>.</li>
+<li>Write tests!</li>
+<li>Make a pull request back to the original repository.</li>
+</ol>
+
+<h3>
+<a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h3>
+
+<p>The SDK is written in <a href="http://coffeescript.org/">CoffeeScript</a>, so please make your changes in the CoffeeScript source files in <code>src</code> and they can be compiled into JavaScript using <code>make js</code>.</p>
+
+<h3>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h3>
+
+<p>You can test the work you have using <code>make test</code>, which uses <a href="http://mochajs.org/">Mocha</a> to run the tests inside of the <code>test</code> directory. You should have environment variables in your shell that specify your API keys in the format <code>REGISTRAR_API_USERNAME</code> and <code>REGISTRAR_API_PASSWORD</code>.
+If you prefer to have these tests run while you're editing automatically, you can run <code>make watch</code> from your terminal.</p>
+
+<h2>
+<a id="authors" class="anchor" href="#authors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors</h2>
+
+<ul>
+<li>Adel Qalieh</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p><a href="LICENSE">MIT Licensed</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/pennlabs/penn-sdk-node">Penn OpenData Node SDK</a> is maintained by <a href="https://github.com/pennlabs">pennlabs</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
